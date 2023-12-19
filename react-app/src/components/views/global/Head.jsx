@@ -1,5 +1,5 @@
 import React from 'react'
-import css from '../../../styles/styles'
+import css from '../../../styles/styles.css'
 
 const { HeaderContainer, HeaderCSS } = css
 ///////////////////////////////////////////
@@ -11,7 +11,7 @@ const buttonCSS = {
 	cursor: 'pointer',
 	marginLeft: '10px',
 }
-//////////////////////////////////////
+///////////////////////////////////////
 const Head = () => {
 	return (
 		<React.Fragment>
