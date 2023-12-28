@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import css from '../../styles/form.css'
 
 // const object = {
@@ -15,10 +15,28 @@ import css from '../../styles/form.css'
 const { Input } = css
 
 const InputComponent = props => {
-	const { placeholder } = props
+	const { placeholder, maxLength, action, inputValue } = props
+
+	const [countValue, setCountValue] = useState(maxLength)
+
+	const count = () => {
+		setCountValue(countValue - action.length)
+		console.log(countValue)
+	}
+
 	return (
 		<React.Fragment>
-			<Input type={'text'} placeholder={placeholder} maxLength={'100'} />
+			<Input
+				value={inputValue}
+				type={'text'}
+				placeholder={placeholder}
+				maxLength={maxLength}
+				onChange={event => {
+					const newValue = event.target.value
+					action(newValue)
+					count(newValue)
+				}}
+			/>
 		</React.Fragment>
 	)
 }
